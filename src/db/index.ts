@@ -1,6 +1,7 @@
 import { QueryResult } from 'pg';
 import { pool, connectToDb } from './connection.js';
 import inquirer from 'inquirer';
+import { table } from 'table';
 await connectToDb();
 
 
@@ -62,13 +63,13 @@ const promptUser = () => {
 
 //view all departments
 const viewAllDepartments = () => {
-    const sql = 'SELECT * FROM departments'
+    const sql = 'SELECT * FROM departments';
 
     pool.query(sql, (err: Error, result: QueryResult) => {
         if (err) {
             console.log(err);
           } else if (result) {
-            console.log(result.rows);
+            console.log(table(result.rows));
           }
 
     });
@@ -77,20 +78,20 @@ const viewAllDepartments = () => {
 
 //view all roles
 const viewAllRoles = () => {
-    const sql = 'SELECT * FROM roles'
+    const sql = 'SELECT * FROM roles';
 
     pool.query(sql, (err: Error, result: QueryResult) => {
         if (err) {
             console.log(err);
           } else if (result) {
-            console.log(result.rows);
+            console.log(result);
           }
     });
 };
 
 //view all employees
 const viewAllEmployees = () => {
-    const sql = 'SELECT * FROM employees'
+    const sql = 'SELECT * FROM employees';
 
     pool.query(sql, (err: Error, result: QueryResult) => {
         if (err) {
