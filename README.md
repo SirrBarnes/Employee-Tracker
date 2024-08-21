@@ -1,32 +1,60 @@
-# Module 12 Mini-Project: Movie Database
+# Employee Tracker
 
-In this mini-project, you will build Rest API routes for creating, retrieving, and deleting movies from a PostgreSQL database.
+This project is made to build a command-line application from scratch to manage a company's employee database, using Node.js, Inquirer, and PostgreSQL.
+
+## Installation
+
+What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+
+## Usage
+
+Provide instructions and examples for use. Include screenshots as needed.
+
+To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+
+    ```md
+    ![alt text](assets/images/screenshot.png)
+    ```
+
+## Features
+
+If your project has a lot of features, list them here.
 
 ## User Stories
 
-* As a user, I want to create a new database.
+AS A business owner
 
-* As a user, I want to store movie names and reviews in the database in two separate tables.
+I WANT to be able to view and manage the departments, roles, and employees in my company
 
-* As a user, I want to see a list of all movies.
-
-* As a user, I want to be able to create and delete a movie.
-
-* As a user, I want to return a list of all the reviews and the associated movie name.
+SO THAT I can organize and plan my business
 
 ## Acceptance Criteria
 
-* It's done when `movie_db` is created and contains a `movies` and `reviews` table.
+GIVEN a command-line application that accepts user input
 
-* It's done when `movie_db` has been seeded with data.
+*    WHEN I start the application
+    THEN I am presented with the following options: view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employee role
 
-* It's done when a `GET` request to the `/api/movies` route renders a list of all movies.
+*   WHEN I choose to view all departments
+    THEN I am presented with a formatted table showing department names and department ids
 
-* It's done when a `GET` request to the `/api/movie-reviews` route renders a list of all reviews with movie data.
+*   WHEN I choose to view all roles
+    THEN I am presented with the job title, role id, the department that role belongs to, and the salary for that role
 
-* It's done when a `POST` request to the `/api/add-movie` route successfully adds a movie when tested using Insomnia.
+*   WHEN I choose to view all employees
+    THEN I am presented with a formatted table showing employee data, including employee ids, first names, last names, job titles, departments, salaries, and managers that the employees report to
 
-* It's done when a `DELETE` request to `/api/movie/:id` route deletes a route when tested using Insomnia.
+*   WHEN I choose to add a department
+    THEN I am prompted to enter the name of the department and that department is added to the database
+
+*   WHEN I choose to add a role
+    THEN I am prompted to enter the name, salary, and department for the role and that role is added to the database
+
+*   WHEN I choose to add an employee
+    THEN I am prompted to enter the employee's first name, last name, role, and manager, and that employee is added to the database
+
+*   WHEN I choose to update an employee role
+    THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 
 ---
 
@@ -34,37 +62,21 @@ In this mini-project, you will build Rest API routes for creating, retrieving, a
 
 Design the following database schema that contains two tables:
 
-![The database schema includes a movies table and a reviews table, linked by the movie id.](./assets/image_1.png)
+![The database schema includes a departments table a roles table and a employees table, linked by the department id.](./assets/image_1.png)
 
 ---
 
-## Notes
-
-To test your routes you will use Insomnia. If you have not already downloaded it, you will need to visit the [Insomnia download page](https://insomnia.rest/download) and do so.
-
-Refer to the documentation:
-
-[Insomnia documentation on getting started](https://support.insomnia.rest/category/152-using-insomnia)
-
-[Express.js documentation on routing](https://expressjs.com/en/guide/routing.html)
-
-[PostgreSQL documentation on joins](https://www.postgresql.org/docs/current/tutorial-join.html)
-
-[Documentation on pg package](https://node-postgres.com/)
-
-## 💡 Hints
-
-How can you link your `movies` and `reviews` tables?
-
-How can you execute a query in an Express.js server using the npm `pg` package?
 
 ## 🏆 Bonus
 
-If you have completed this activity, work through the following challenge with your partner to further your knowledge:
+Try to add some additional functionality to your application, such as the ability to do the following:
 
-* How can you add a route to update a review?
+Update employee managers.
 
-Use [Google](www.google.com) or another search engine to research this.
+View employees by manager.
 
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+View employees by department.
+
+Delete departments, roles, and employees.
+
+View the total utilized budget of a department—in other words, the combined salaries of all employees in that department.

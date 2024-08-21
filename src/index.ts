@@ -3,6 +3,9 @@ import inquirer from 'inquirer';
 
 await connectToDb();
 
+// const asciiArt = () => {
+//     console.log(``);
+// }
 
 //prompt User
 const promptUser = () => {
@@ -356,4 +359,5 @@ const deleteEmployee = () => {
 };
 
 //View the total utilized budget of a department—in other words, the combined salaries of all employees in that department.
+// asciiArt();
 promptUser();
