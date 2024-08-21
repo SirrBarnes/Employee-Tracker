@@ -162,6 +162,7 @@ const addNewRole = () => {
             } else {
                 console.log('Role added successfully');
             }
+            promptUser();
         });
     });
 };
@@ -175,7 +176,7 @@ const addNewEmployee = () => {
         { name: 'manager_id', message: 'Enter Manager ID: '}
 
     ]).then(answers => {
-        const sql = 'INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3)';
+        const sql = 'INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)';
 
         const params = [answers.first_name, answers.last_name, answers.role_id, answers.manager_id];
 
@@ -193,19 +194,20 @@ const addNewEmployee = () => {
 //update employeee role
 const updateEmployeeRole = () => {
     inquirer.prompt([
-        { name: 'role_id', message: '' },
-        { name: 'id', message: '' }
+        { name: 'employee_id', message: 'Enter Employee ID: ' },
+        { name: 'role_id', message: 'Enter Updated Role ID: ' }
 
     ]).then(answers => {
         const sql = `UPDATE employees SET role_id = $1 WHERE id = $2`;
-        const params = [answers.role_id, answers.id];
+        const params = [answers.role_id, answers.employee_id];
 
         pool.query(sql, params, (err, result) => {
             if (err) {
                 console.log(err);
             } else if (result) {
-                console.log(result.rows);
+                console.table(result.rows);
             }
+            promptUser();
         });
     });
 };
